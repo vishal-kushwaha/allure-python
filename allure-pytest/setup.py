@@ -32,16 +32,15 @@ setup_requires = [
 install_requires = [
     "pytest>=4.5.0",
     "six>=1.9.0",
-    "allure-python-commons==2.8.*"
 ]
 
 
-# def prepare_version():
-#     from setuptools_scm import get_version
-#     configuration = {"root": "..",  "relative_to": __file__}
-#     version = get_version(**configuration)
-#     install_requires.append("allure-python-commons=={version}".format(version=version))
-#     return configuration
+def prepare_version():
+    from setuptools_scm import get_version
+    configuration = {"root": "..",  "relative_to": __file__}
+    version = get_version(**configuration)
+    install_requires.append("allure-python-commons==2.8.*")
+    return configuration
 
 
 def get_readme(fname):

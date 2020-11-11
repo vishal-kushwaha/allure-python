@@ -57,7 +57,10 @@ class AllureReporter(object):
         self._items.pop(uuid)
 
     def start_after_fixture(self, parent_uuid, uuid, fixture):
-        self._items.get(parent_uuid).afters.append(fixture)
+        try:
+            self._items.get(parent_uuid).afters.append(fixture)
+        except AttributeError:
+            pass
         self._items[uuid] = fixture
 
     def stop_after_fixture(self, uuid, **kwargs):
